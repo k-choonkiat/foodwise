@@ -4,6 +4,7 @@ class Typography extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+
         <div className="card">
           <div className="card-header">
             Headings

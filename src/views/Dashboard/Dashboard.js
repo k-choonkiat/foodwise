@@ -374,7 +374,7 @@ var data3 = [];
 
 for (var i = 0; i <= elements; i++) {
   data1.push(random(2200, 3500));
-  data2.push(random(80, 100));
+  data2.push(random(50, 280));
   data3.push(3000);
 }
 
@@ -397,6 +397,20 @@ const mainChart = {
       borderWidth: 1,
       borderDash: [8, 5],
       data: data3,
+    },
+  ],
+};
+
+const sideChart = {
+  labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+  datasets: [
+    {
+      label: 'Daily Intake',
+      backgroundColor: hexToRgba(brandInfo, 10),
+      borderColor: brandInfo,
+      pointHoverBackgroundColor: '#fff',
+      borderWidth: 2,
+      data: data2,
     },
   ],
 };
@@ -445,6 +459,51 @@ const mainChartOpts = {
   },
 };
 
+
+const sideChartOpts = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips,
+    intersect: true,
+    mode: 'index',
+    position: 'nearest',
+    callbacks: {
+      labelColor: function (tooltipItem, chart) {
+        return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
+      }
+    }
+  },
+  maintainAspectRatio: false,
+  legend: {
+    display: false,
+  },
+  scales: {
+    xAxes: [
+      {
+        gridLines: {
+          drawOnChartArea: false,
+        },
+      }],
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+          maxTicksLimit: 5,
+          stepSize: Math.ceil(300 / 5),
+          max: 300,
+        },
+      }],
+  },
+  elements: {
+    point: {
+      radius: 0,
+      hitRadius: 10,
+      hoverRadius: 4,
+      hoverBorderWidth: 3,
+    },
+  },
+};
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -476,15 +535,33 @@ class Dashboard extends Component {
 
     return (
       <div className="animated fadeIn">
+
+
         <Row>
           <Col>
-          <Card>
-            <CardTitle className="card text-center mb-0">Mary Maryland</CardTitle>
-            <CardBody>
-            <img src="../../assets/img/brand/rachel.png" class="img-fluid" alt="Responsive image"/>
-            <h4>Age : 42</h4>
-            </CardBody>
-          </Card>
+            <Card>
+              <CardBody>
+                <Row>
+                  <Col sm="5">
+                    <CardTitle className="mb-0">Spending over time</CardTitle>
+                    <div className="small text-muted">February 2020</div>
+                  </Col>
+                  <Col sm="7" className="d-none d-sm-inline-block">
+                    <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
+                    <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
+                      <ButtonGroup className="mr-3" aria-label="First group">
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Month</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Year</Button>
+                      </ButtonGroup>
+                    </ButtonToolbar>
+                  </Col>
+                </Row>
+                <div className="chart-wrapper" style={{ height: 300 + 'px', marginTop: 40 + 'px' }}>
+                  <Line data={sideChart} options={sideChartOpts} height={300} />
+                </div>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
 
@@ -529,7 +606,7 @@ class Dashboard extends Component {
           <Col>
             <Card>
               <CardHeader>
-                Weekly Goals
+                Weekly Calorie Goals
               </CardHeader>
               <CardBody>
                 <Row>

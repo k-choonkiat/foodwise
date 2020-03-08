@@ -13,7 +13,7 @@ class ThemeView extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const elem = ReactDOM.findDOMNode(this).parentNode.firstChild
     const color = window.getComputedStyle(elem).getPropertyValue('background-color')
     this.setState({
@@ -26,14 +26,14 @@ class ThemeView extends Component {
     return (
       <table className="w-100">
         <tbody>
-        <tr>
-          <td className="text-muted">HEX:</td>
-          <td className="font-weight-bold">{ rgbToHex(this.state.bgColor) }</td>
-        </tr>
-        <tr>
-          <td className="text-muted">RGB:</td>
-          <td className="font-weight-bold">{ this.state.bgColor }</td>
-        </tr>
+          <tr>
+            <td className="text-muted">HEX:</td>
+            <td className="font-weight-bold">{rgbToHex(this.state.bgColor)}</td>
+          </tr>
+          <tr>
+            <td className="text-muted">RGB:</td>
+            <td className="font-weight-bold">{this.state.bgColor}</td>
+          </tr>
         </tbody>
       </table>
     )
@@ -53,9 +53,9 @@ class ThemeColor extends Component {
 
     return (
       <Col xl="2" md="4" sm="6" xs="12" className="mb-4">
-        <div className={classes} style={{paddingTop: '75%'}}></div>
+        <div className={classes} style={{ paddingTop: '75%' }}></div>
         {children}
-        <ThemeView/>
+        <ThemeView />
       </Col>
     )
   }
@@ -65,34 +65,44 @@ class Colors extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+
         <div className="card">
           <div className="card-header">
-            <i className="icon-chemistry"></i>Condiments 
+            <i ></i>Condiments
           </div>
           <div className="card-body">
-            <Row>
-              
-            </Row>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Chilli</li>
+              <li class="list-group-item">Soya sauce</li>
+              <li class="list-group-item"></li>
+            </ul>
+
           </div>
         </div>
         <div className="card">
           <div className="card-header">
-            <i className="icon-drop"></i> Grays
+            <i></i> Vegetable
           </div>
           <div className="card-body">
-            <Row className="mb-3">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Spinach</li>
+              <li class="list-group-item">Brocolli</li>
+              <li class="list-group-item">Carrots</li>
+            </ul>
 
-            </Row>
           </div>
         </div>
         <div className="card">
           <div className="card-header">
-            <i className="icon-drop"></i> Additional colors
+            <i className="icon-gentoo"></i> Meat
           </div>
           <div className="card-body">
-            <Row>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Chicken</li>
+              <li class="list-group-item">Beef</li>
+              <li class="list-group-item">Pork</li>
+            </ul>
 
-            </Row>
           </div>
         </div>
       </div>

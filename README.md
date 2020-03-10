@@ -1,4 +1,4 @@
-FoodWise
+#FoodWise
 
 ## Installation
 
@@ -62,29 +62,7 @@ CoreUI-React#v2.0.0
 
 ## Documentation
 
-The documentation for the CoreUI  Admin Template is hosted at our website [CoreUI for React](https://coreui.io/react/)
-
-
-## Contributing
-
-Please read through our [contributing guidelines](https://github.com/coreui/coreui-free-react-admin-template/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
-
-Editor preferences are available in the [editor config](https://github.com/coreui/coreui-free-react-admin-template/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
-
-## Versioning
-
-For transparency into our release cycle and in striving to maintain backward compatibility, CoreUI Free Admin Template is maintained under [the Semantic Versioning guidelines](http://semver.org/).
-
-See [the Releases section of our project](https://github.com/coreui/coreui-free-react-admin-template/releases) for changelogs for each release version.
-
-## Creators
-
-**Łukasz Holeczek**
-* <https://twitter.com/lukaszholeczek>
-* <https://github.com/mrholek>
-
-**Andrzej Kopański**
-* <https://github.com/xidedix>
+The documentation for the CoreUI  Admin Template is hosted at the website [CoreUI for React](https://coreui.io/react/)
 
 ## Community
 
